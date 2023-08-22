@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Results</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <h1>Results</h1>
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Item</th>
+            <th>Notes</th>
+        </tr>
+        {% for row in data %}
+        <tr>
+            <td>{{ row[0] }}</td>
+            <td>{{ row[1] }}</td>
+            <td>{{ row[2] }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    <button onclick="location.href='/'">Go back</button >
+</body>
+</html>
