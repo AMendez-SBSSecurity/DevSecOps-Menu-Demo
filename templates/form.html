@@ -3,6 +3,16 @@
 <head>
     <title>Formulario</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <script>  
+        function message(){
+             Swal.fire(
+                 'The form was completed satisfactorily!',
+                 '',
+                 'success'
+             )
+         }
+     </script>
+     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 <body class="body-white">
     <form method="POST" action="/" class="form-white">
@@ -42,7 +52,8 @@
         <label for="notes">Notes:</label>
         <textarea id="notes" name="notes"></textarea><br><br>
 
-        <input type="submit" value="Submit" class= "input-white">
+        <input type="submit" value="Submit" class= "input-white" onclick="message()">
+        
         <button onclick="location.href='{{ url_for('show_results') }}'" >Show Results</button>
     </form>
 </body>
