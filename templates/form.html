@@ -4,8 +4,8 @@
     <title>Formulario</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
 </head>
-<body>
-    <form method="POST" action="/">
+<body class="body-white">
+    <form method="POST" action="/" class="form-white">
         <div class= "logo_item">
             <img src="{{ url_for('static', filename='images/voya.png') }}" alt="Voya", width = 100% , height = 100%>
         </div>
@@ -16,16 +16,25 @@
 
         <div class="radio-options">     
             
-            
-            <input type="radio" id="item1" name="item" value="Pizza" required>
-            <label for="item1">Pizza</label >
+            <input type="radio" id="item1" name="item" value="Burguer" required>
+            <label for="item1">Burguer</label >
             <br>
             
-            <input type="radio" id="item2" name="item" value="Hamburguer"  required >
-            <label for="item2">Hamburguesa</label>
+            <input type="radio" id="item2" name="item" value="Pork_ribs"  required >
+            <label for="item2">Pork ribs</label>
             <br>
-            <input type="radio" id="item3" name="item" value="Pasta" required>           
-            <label for="item3">Pasta</label><br><br> 
+            <input type="radio" id="item3" name="item" value="Chicken" required>           
+            <label for="item3">Chicken</label>
+            <br>
+            <input type="radio" id="item4" name="item" value="Lasagna" required>
+            <label for="item1">Lasagna</label >
+            <br>
+            
+            <input type="radio" id="item5" name="item" value="Pizza"  required >
+            <label for="item2">Pizza</label>
+            <br>
+            <input type="radio" id="item6" name="item" value="Hot_dog" required>           
+            <label for="item3">Hot dog</label><br><br> 
 
         </div>
         
@@ -33,7 +42,7 @@
         <label for="notes">Notes:</label>
         <textarea id="notes" name="notes"></textarea><br><br>
 
-        <input type="submit" value="Submit">
+        <input type="submit" value="Submit" class= "input-white">
         <button onclick="location.href='{{ url_for('show_results') }}'" >Show Results</button>
     </form>
 </body>

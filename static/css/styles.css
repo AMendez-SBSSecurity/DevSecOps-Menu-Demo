@@ -1,11 +1,26 @@
 body {
   font-family: Arial, sans-serif;
+  background-color: #fb8000;
+  margin: 0;
+  padding: 20px;
+  color: #ccc;
+}
+.body-white {
+  font-family: Arial, sans-serif;
   background-color: #f2f2f2;
   margin: 0;
   padding: 20px;
+  color: black;
 }
-
 form {
+  max-width: 400px;
+  margin: 0 auto;
+  background-color: #1b203b;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+.form-white {
   max-width: 400px;
   margin: 0 auto;
   background-color: #fff;
@@ -13,7 +28,6 @@ form {
   border-radius: 5px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
-
 label {
   display: inline-block;
   margin-bottom: 10px;
@@ -43,7 +57,7 @@ input[type="radio"] {
 }
 
 input[type="submit"] {
-  background-color: #1b203b;
+  background-color: #fb8000;
   color: #fff;
   border: none;
   padding: 10px 20px;
@@ -52,7 +66,19 @@ input[type="submit"] {
 }
 
 input[type="submit"]:hover {
+  background-color: #ff9e36;
+}
+.input-white[type="submit"] {
   background-color: #1b203b;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.input-white[type="submit"]:hover {
+  background-color: #282f57;
 }
 button {
   background-color: #fb8000;
@@ -61,6 +87,9 @@ button {
   padding: 10px 20px;
   border-radius: 4px;
   cursor: pointer;
+}
+button:hover{
+  background-color: #ff9e36;
 }
 table {
   width: 100%;
