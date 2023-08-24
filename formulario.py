@@ -21,18 +21,18 @@ def form():
         # Crear una lista con los datos a guardar
         data = [name, item, notes, email]
         # Git Actions
-        if os.path.exists("./web_app"):
-            os.system('cmd /c "rmdir /s /Q web_app"')
-        git_operations.clone_repo( "web_app", "github.com/AMendez-SBSSecurity/DevSecOps-WebApp-Demo.git")
+        if os.path.exists("..\\web_app"):
+            os.system('cmd /c "rmdir /s /Q ..\\web_app"')
+        git_operations.clone_repo( "../web_app", "github.com/AMendez-SBSSecurity/DevSecOps-WebApp-Demo.git")
         # Abrir el archivo CSV en modo de escritura
-        with open('./web_app/static/data.csv', 'a', newline='') as file:
+        with open('..\\web_app\\static\\data.csv', 'a', newline='') as file:
             writer = csv.writer(file)
             
             # Escribir los datos en el archivo CSV
             writer.writerow(data)
-        git_operations.push_changes("web_app")
-        if os.path.exists("./web_app"):
-            os.system('cmd /c "rmdir /s /Q web_app"')
+        git_operations.push_changes("..\\web_app")
+        if os.path.exists("..\\web_app"):
+            os.system('cmd /c "rmdir /s /Q ..\\web_app"')
         # Aquí puedes hacer lo que necesites con los datos del formulario
         
     return render_template('form.html')
