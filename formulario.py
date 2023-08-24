@@ -13,6 +13,9 @@ def form():
         name = request.form['name']
         item = request.form['item']
         notes = request.form['notes']
+        if notes == '':
+            notes = "None"
+        print(f"La variable notes es: {notes}")
         email = request.form['email']
         
         # Crear una lista con los datos a guardar
@@ -24,10 +27,7 @@ def form():
         # Abrir el archivo CSV en modo de escritura
         with open('./web_app/static/data.csv', 'a', newline='') as file:
             writer = csv.writer(file)
-            # Verificar si esta vacio y si lo está, lo setea en none
-            for i in range(len(data)):
-                if data[i] == '':
-                    data[i] = None
+            
             # Escribir los datos en el archivo CSV
             writer.writerow(data)
         git_operations.push_changes("web_app")
