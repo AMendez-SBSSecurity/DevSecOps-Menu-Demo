@@ -13,9 +13,10 @@ def form():
         name = request.form['name']
         item = request.form['item']
         notes = request.form['notes']
+        email = request.form['email']
         
         # Crear una lista con los datos a guardar
-        data = [name, item, notes]
+        data = [name, item, notes, email]
         # Git Actions
         if os.path.exists("./web_app"):
             os.system('cmd /c "rmdir /s /Q web_app"')
