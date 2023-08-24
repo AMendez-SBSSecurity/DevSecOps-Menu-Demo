@@ -3,19 +3,10 @@
 <head>
     <title>Formulario</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
-    <script>  
-        function message(){
-             Swal.fire(
-                 'The form was completed satisfactorily!',
-                 '',
-                 'success'
-             )
-         }
-     </script>
-     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 <body class="body-white">
-    <form method="POST" action="/" class="form-white">
+    <form method="POST" action="/" class="form-white" onsubmit="return validateForm()">
         <div class= "logo_item">
             <img src="{{ url_for('static', filename='images/voya.png') }}" alt="Voya", width = 100% , height = 100%>
         </div>
@@ -25,7 +16,6 @@
         <label for="item">Item:</label>
 
         <div class="radio-options">     
-            
             <input type="radio" id="item1" name="item" value="Burguer" required>
             <label for="item1">Burguer</label >
             <br>
@@ -45,17 +35,42 @@
             <br>
             <input type="radio" id="item6" name="item" value="Hot dog" required>           
             <label for="item3">Hot dog</label><br><br> 
-
         </div>
         
         <label for="email">Email:</label>
         <input type="email" id="email" name="email" required><br><br>
 
         <label for="notes">Notes:</label>
-        <textarea id="notes" name="notes" placeholder= "None"></textarea><br><br>
+        <textarea id="notes" name="notes" placeholder="None"></textarea><br><br>
 
-        <input type="submit" value="Submit" class= "input-white" onclick="message()">
-        
+        <input type="submit" value="Submit" class="input-white">
     </form>
+
+    <script>
+        function validateForm() {
+            // Validar que los campos estén llenados adecuadamente
+            var name = document.getElementById("name").value;
+            var item = document.querySelector('input[name="item"]:checked');
+            var email = document.getElementById("email").value;
+
+            if (!name || !item || !email) {
+                // Mostrar mensaje de error si algún campo está vacío
+                Swal.fire(
+                    'Please, complete all the fields',
+                    '',
+                    'error'
+                );
+                return false; // Evitar el envío del formulario
+            }
+
+            // Si todos los campos están llenados, mostrar mensaje de éxito
+            Swal.fire(
+                'Form completed successfully!',
+                '',
+                'success'
+            );
+            return true; // Permitir el envío del formulario
+        }
+    </script>
 </body>
 </html>
